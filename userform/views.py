@@ -33,17 +33,18 @@ def login(request):
 def profile(request):
 	if request.method == 'POST':
 		get_name_request = request.POST.get('name')
-		get_user_name = UserProfile.objects.get(user__your_name=get_name_request)
-		#y1= y.objects.values('email')
-		user = UserProfile.objects.get(name=get_user_name )	
-		#a= y[0]['name']
+		
 
-		if user:
+		if request:
 			try:
+				get_user_name = UserProfile.objects.get(user__your_name=get_name_request)
+				#y1= y.objects.values('email')
+				user = UserProfile.objects.get(name=get_user_name )	
+				#a= y[0]['name']
 				print(user)							
 				context = {'users':user}
 				return render(request,'profile.html',context)
 			except:	
-				return render(request,'profile.html')
+				return HttpResponse("<h1>User Doesn't exist</h1>")
 	return render(request,'profile.html')
 		
