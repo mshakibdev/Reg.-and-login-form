@@ -1,0 +1,23 @@
+<form action="/profile/" method="post">
+    {% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <input type="text" name="name">
+    <input type="submit" value="Submit">
+</form>
+{% if users %}
+<table border="10">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+    </tr>
+    <tr>
+        <td>{{ users.name}}</td>
+        <td>{{ users.phone}}</td>
+        <td>{{ users.email}}</td>
+        <td>{{ users.address}}</td>
+
+    </tr>
+</table>
+{% endif %}
