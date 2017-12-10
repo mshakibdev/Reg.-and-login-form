@@ -40,8 +40,7 @@ def profile(request):
 				get_user_name = UserProfile.objects.get(user__your_name=get_name_request)
 				#y1= y.objects.values('email')
 				user = UserProfile.objects.get(name=get_user_name )	
-				#a= y[0]['name']
-				print(user)							
+				#a= y[0]['name']						
 				context = {'users':user}
 				return render(request,'profile.html',context)
 			except:	
