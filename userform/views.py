@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import MyUser,UserProfile
-def get_info(request):
+def get_info(request):                    #registration form
 	if request.method == 'POST':
 		username = request.POST.get('your_name')
 		passwords = request.POST.get('password')
